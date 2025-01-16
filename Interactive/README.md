@@ -35,13 +35,13 @@ cd sales-data-analysis/interactive
 python interactive_data_analysis.py
 ```
 
-4. Choose an option from the menu:
-- Enter (1) to view total revenue.
-- Enter (2) to display top-selling products.
-- Enter (3) to view a bar chart.
-- Enter (4) to view a pie chart.
-- Enter (5) to view a line plot of revenue over time.
-- Enter (6) to exit.
+4. **Choose- an Otion from the Menu**:
+- Enter '1' or type 'view total revenue' to view the total revenue.
+- Enter '2' or type 'display top selling products' to display top-selling products.
+- Enter '3' or type 'show bar chart' to view bar chart.
+- Enter '4' or type 'show pie chart' to view pie chart.
+- Enter '5' or type 'show line plot' to view a line plot of revenue over time.
+- Enter'6' or type 'exit' to quit the program
 
 ## Example Menu Output
 ```plaintext
