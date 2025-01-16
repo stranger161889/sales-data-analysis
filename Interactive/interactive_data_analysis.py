@@ -22,14 +22,17 @@ def display_total_revenue():
 def display_top_selling_products():
     top_dishes = df.groupby("Product")["Quantity"].sum().sort_values(ascending=False).head(5)
     print("\nTop 5 Selling Products:")
-    print(top_dishes)
+    print(top_dishes.to_string())
 
 # Function to show bar chart for top-selling products
 def show_bar_chart():
-    top_dishes = df.groupby("Product") ["Quantity"].sum().sort_values(ascending=False).head(5)
-    plt.figure(figsize=(8,5))
-    top_dishes.plot(kind='bar',title='Top 5 Selling Products', ylabel='Quantity Sold', xlabel='Product')
-    plt.show()
+    try:
+        top_dishes = df.groupby("Product") ["Quantity"].sum().sort_values(ascending=False).head(5)
+        plt.figure(figsize=(8,5))
+        top_dishes.plot(kind='bar',title='Top 5 Selling Products', ylabel='Quantity Sold', xlabel='Product')
+        plt.show()
+    except Exception as e:
+        print(f"Error generating bar chart: {e}")
 
 # Function to show pie chart for revenue contribution
 def show_pie_chart():
@@ -61,19 +64,19 @@ while True:
     print("5. Show Line Plot for Revenue Over Time")
     print("6. Exit")
 
-    choice = input("Enter your choice (1-6): ")
+    choice = input("Enter your choice (1-6): ").strip().lower()
 
-    if choice == "1":
+    if choice in ["1", "view total revenue"]:
         display_total_revenue()
-    elif choice == "2":
+    elif choice in ["2", "display top-selling products"]:
         display_top_selling_products()
-    elif choice == "3":
+    elif choice ["3", "show bar chart"]:
         show_bar_chart()
-    elif choice == "4":
+    elif choice in ["4", "show pie chart"]:
         show_pie_chart()
-    elif choice =="5":
+    elif choice in ["5", "show line plot"]:
         show_line_plot()
-    elif choice == "6":
+    elif choice in["6", "exit"]:
         print("Exiting the program. Goodbye!")
         break
     else:
